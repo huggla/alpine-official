@@ -2,5 +2,6 @@ FROM alpine
 
 RUN apk update \
  && apk upgrade \
- && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/untrusted-repositories \
- && apk --repositories-file /etc/apk/untrusted-repositories update
+ && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /tmp/testing \
+ && apk --repositories-file /tmp/testing update \
+ && rm /tmp/testing
